@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100&family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+        rel="stylesheet">
+        <link rel="icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+  <title>Frontend Mentor | Age calculator app</title>
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    
+    * {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+main {
+    width: 842px;
+    height: 651px;
+    background-color: white;
+    border-radius: 1rem;
+    border-radius: 2rem 2rem 14rem 2rem;
+}
+
+.inputs-container {
+    width: 727px;
+    position: relative;
+
+}
+
+.inputs-container>div {
+
+    width: 634px;
+    display: flex;
+    margin-left: 58px;
+    margin-top: 62px;
+    justify-content: space-between;
+}
+
+
+div.input-block {
+    width: 168px;
+}
+
+div.input-block,
+div.input-block input {
+    color: #8a8a8a;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+}
+
+div.input-block input {
+    font-size: 32px;
+    width: 158px;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+    padding-left: 24px;
+    height: 70px;
+    width: 159px;
+    margin-top: 14px;
+
+}
+
+hr {
+    width: 100%;
+    margin-left: 58px;
+    margin-top: 50px;
+    color: #ececec;
+
+}
+
+div#button {
+    background: #874cfc;
+    border-radius: 50%;
+    width: 97px;
+    height: 97px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 77px;
+    left: 90%;
+    cursor: pointer;
+}
+
+div#button:hover {
+    background-color: black;
+    transition: all ease-in-out .2s;
+}
+
+div.input-block input {
+    color: black;
+}
+
+.result-block {
+    margin-left: 68px;
+}
+
+.result-block span:nth-of-type(1) {
+    color: #874cfc;
+    font-weight: bold;
+    font-size: 5rem;
+    font-style: italic;
+}
+
+.result-block span:nth-of-type(2) {
+    color: black;
+    font-weight: bold;
+    font-size: 5rem;
+    font-style: italic;
+}
+
+span.error-message {
+    color: red;
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0px;
+
+}
+footer {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    footer {
+    margin-top: 12rem;
+  
+}
+    main {
+        width: 343px;
+    }
+
+    .inputs-container {
+        width: 298px;
+        margin-top: 50px;
+        margin-left: 24px;
+    }
+
+    .inputs-container>div {
+        width: 100%;
+        display: flex;
+        margin: 0;
+        justify-content: space-between;
+    }
+
+    div.input-block {
+        width: 91px;
+    }
+
+    div.input-block input {
+        width: 100% !important;
+        font-size: 1rem !important;
+        border: 1px solid #ececec;
+        height: 48px;
+        border-radius: 6px;
+        padding-left: 5px;
+    }
+
+    hr {
+
+        margin-left: 0px;
+
+    }
+
+    div#button {
+        width: 64px;
+        height: 64px;
+        top: 109px;
+        left: 42%;
+
+    }
+
+    .result-block span:nth-of-type(2) {
+        font-size: 3rem;
+    }
+
+    .result-block span:nth-of-type(1) {
+        font-size: 3rem;
+    }
+
+    .results-container {
+        margin: 66px 29px;
+    }
+    .result-block {
+        margin-left: 0px;
+    }
+}
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="inputs-container">
+     
+        <div>
+            <div class="input-block">
+                <label>day</label>
+                <input type="number" placeholder="DD" required/>
+                <span class="error-message"></span>
+            </div>
+            <div class="input-block">
+                <label>month</label>
+                <input type="number" placeholder="MM" required/>
+                <span class="error-message"></span>
+
+            </div>
+
+            <div class="input-block">
+                <label>year</label>
+                <input type="number" placeholder="YYYY" min="1900" max="2024" />
+                <span class="error-message"></span>
+
+            </div>
+        </div>
+        <hr>
+        <div id="button" id="calc-button">
+            <img src="assets/images/icon-arrow.svg" alt="arrow calculate button" />
+        </div>
+    </div>
+
+    <div class="results-container">
+        <div class="result-block">
+            <span id="years">--</span> <span>years</span>
+        </div>
+
+        <div class="result-block">
+            <span id="months">--</span> <span>months</span>
+        </div>
+
+        <div class="result-block">
+            <span id="days">--</span> <span>days</span>
+        </div>
+    </div>
+    <span id="error-message"></span>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://codepen.io/adriiiiiix">Adry</a>.
+  </div>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('button').addEventListener('click', calculateAge);
+  });
+
+  function calculateAge() {
+    var day = parseInt(document.querySelector('.input-block:nth-child(1) input').value);
+    var month = parseInt(document.querySelector('.input-block:nth-child(2) input').value);
+    var year = parseInt(document.querySelector('.input-block:nth-child(3) input').value);
+
+    if (isNaN(day) || isNaN(month) || isNaN(year)) {
+      document.getElementById('error-message').innerText = 'Please enter valid values.';
+      return;
+    }
+
+    var inputDate = new Date(year, month - 1, day);
+    var currentDate = new Date();
+
+    var timeDiff = currentDate - inputDate;
+
+    var years = Math.floor(timeDiff / (1000 * 60 * 60 * 24 * 365.25));
+    var months = Math.floor((timeDiff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+    var days = Math.floor((timeDiff % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+
+    document.getElementById('years').innerText = years;
+    document.getElementById('months').innerText = months;
+    document.getElementById('days').innerText = days;
+
+    document.getElementById('error-message').innerText = '';
+  }
+</script>
+</html>
