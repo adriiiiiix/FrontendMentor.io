@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+:root {
+  /* Responsive font-size */
+  --mobile-font-size: 14px;
+  --tablet-font-size: 16px;
+  --desktop-font-size: 18px;
+}
+
+.light-mode {
+  /* Color */
+  --shadow-color: rgba(133, 133, 133, 0.25);
+  --primary-color: hsl(0, 0%, 98%);
+  --secondary-color: hsl(0, 0%, 100%);
+  --primary-text-color: hsl(200, 15%, 8%);
+  --secondary-text-color: hsl(0, 0%, 52%);
+  --background-hover: hsl(207, 26%, 17%);
+  --text-hover: hsl(0, 0%, 100%);
+}
+
+.dark-mode {
+  --primary-color: hsl(207, 26%, 17%);
+  --secondary-color: hsl(209, 23%, 22%);
+  --primary-text-color: hsl(0, 0%, 100%);
+  --secondary-text-color: hsl(0, 0%, 52%);
+  --background-hover: hsl(0, 0%, 100%);
+  --text-hover: hsl(200, 15%, 8%);
+}
+
+/* Utilities */
+.container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.font-300 {
+  font-weight: 300;
+}
+.font-600 {
+  font-weight: 600;
+}
+.font-800 {
+  font-weight: 800;
+}
+
+.font-small {
+  font-size: 0.8rem;
+}
+.font-medium {
+  font-size: 1rem;
+}
+.font-large {
+  font-size: 1.3rem;
+}
+
+.text-lighter {
+  color: var(--secondary-text-color);
+}
+
+.display-none {
+  display: none;
+}
+
+.scroll-top-button {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  border: none;
+  position: fixed;
+  right: 10%;
+  bottom: 10%;
+  background: var(--primary-color);
+  box-shadow: 0 0 1rem var(--shadow-color);
+  z-index: 9999;
+}
+.scroll-top-button:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+.scroll-top-button i {
+  color: var(--primary-text-color);
+}
